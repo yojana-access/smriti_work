@@ -1,7 +1,51 @@
-{
-    "users":[
-        {"firstName":"John", "lastName":"Doe"}, 
-        {"firstName":"Anna", "lastName":"Smith"},
-        {"firstName":"Peter", "lastName":"Jones"}
-    ]
-}
+[
+    {
+      "id":1,
+      "aadhaar_number": "CHA1TEKN168",
+      "yojana_name": "Yojana1",
+      "rating": 1
+      
+    },
+    {
+        "id":2,
+        "aadhaar_number": "CHA1TEKN168",
+        "yojana_name": "Yojana1",
+        "rating": 1
+        
+    },
+    {
+        "id":3,
+        "aadhaar_number": "CHA1TEKN168",
+        "yojana_name": "Yojana1",
+        "rating": 5
+        
+    },
+    {
+        "id":4,
+        "aadhaar_number": "CHA1TEKN168",
+        "yojana_name": "Yojana1",
+        "rating": 2
+        
+    },
+    {
+        "id":5,
+        "aadhaar_number": "CHA1TEKN168",
+        "yojana_name": "Yojana1",
+        "rating": 3
+        
+    },
+    {
+        "id":6,
+        "aadhaar_number": "CHA1TEKN168",
+        "yojana_name": "Yojana1",
+        "rating": 4
+        
+    },
+    {
+        "id":7,
+        "aadhaar_number": "CHA1TEKN168",
+        "yojana_name": "Yojana1",
+        "rating": 1
+        
+    }
+]
