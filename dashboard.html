@@ -17,7 +17,9 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="index.js"></script>
+  <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+  <!-- <script src="d3.legend.js"></script> -->
+  <!-- <script src="index.js"></script> -->
 
 </head>
 
@@ -69,6 +71,78 @@
             </section></br>
 
             
+
+            <script>
+
+            // d3.json("./main.json").then(function(data){ 
+            // var canvas = d3.select("#section2")
+            // .append("svg")
+            // .attr("width",500)
+            // .attr("height",500)
+            // .attr("transform","translate(300,10) rotate(270)");
+
+            // var color = d3.scaleLinear()
+            // .domain([0,60])
+            // .range(["red","blue"]);
+
+            // canvas.selectAll("rect")
+            // .data(data)
+            // .enter()
+            //     .append("rect")
+            //     .attr("width",function(d){ return d.rating * 10; })
+            //     .attr("height", 20)
+            //     .attr("y", function(d,i){ return i * 22; })
+            //     .attr("fill", function(d){ return color(d); });
+
+
+            // canvas.selectAll("text")
+            // .data(data)
+            // .enter()
+            //     .append("text")
+            //     .attr("y", function(d,i){ return i * 22 + 11 ;  })
+            //     .attr("fill", "white")
+            //     .text(function(d){ return d.rating; })
+
+            // console.log(data);
+            // })
+
+            var width = 500, height = 500;
+
+            var color = d3.scaleOrdinal(d3.schemeDark2);
+
+            var svg = d3.select("body").append("svg")
+                      .attr("width",width)
+                      .attr("height",height);
+
+            var details = [{"grade":"A+","number":8},
+                           {"grade":"B","number":9},
+                           {"grade":"C","number":10},
+                           {"grade":"D","number":11},
+                           {"grade":"E","number":12}]
+
+            var data = d3.pie().sort(null).value(function(d){ return d.number;})(details);
+
+            console.log(data);
+
+            var segments = d3.arc()
+                             .innerRadius(0)
+                             .outerRadius(200)
+                             .padAngle(.05)
+                             .padRadius(50);
+
+        
+            var sections = svg.append("g").attr("transform","translate(250,250)")
+                             .selectAll("path")
+                             .data(data)
+                             .attr("fill",function(d){ return color(d.data.number); });
+            
+            sections.enter().append("path").attr("d",segments);
+            
+
+            
+
+
+        </script>
 
 
   </body>

@@ -17,9 +17,25 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />  
-  <script src="firebase.js"></script>
-  <script src="login.js"></script>
+  <script src="/__/firebase/6.3.1/firebase-app.js"></script>
+  <script src="/__/firebase/init.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+	<script>
+	  const firebaseConfig = {
+        apiKey: "AIzaSyCitRgnQXWRbMaAJHCjtz9fEo2xFoAmk1A",
+        authDomain: "yojana-access.firebaseapp.com",
+        databaseURL: "https://yojana-access.firebaseio.com",
+        projectId: "yojana-access",
+        storageBucket: "yojana-access.appspot.com",
+        messagingSenderId: "161023397386",
+        appId: "1:161023397386:web:003952ab026932ed"
+        };
+	  firebase.initializeApp(config);
+	</script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
+  <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
   
   
   
@@ -76,8 +92,27 @@
     </section>
 
 
-
-    <div style="background-color: rgba(0,0,0,0.4);height: 550px;width: 500px;position: relative;left:30%;align-items:center;margin: 20px">
+  <div id="loaded" class="hidden">
+    <div id="main">
+      <div id="user-signed-in" class="hidden">
+        <div id="user-info">
+          <div id="phone"></div>
+          <div class="clearfix"></div>
+        </div>
+        <p>
+          <button id="sign-out">Sign Out</button>
+        </p>
+      </div>
+      <div id="user-signed-out" class="hidden">
+        <div id="firebaseui-spa">
+          <h3>App:</h3>
+          <div id="firebaseui-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="login.js"></script>
+    <!-- <div style="background-color: rgba(0,0,0,0.4);height: 600px;width: 500px;position: relative;left:30%;align-items:center;margin: 20px">
         <form data-component="loginForm" style="padding: 20px;">
           <h2 style="text-align: center">Login Form</h2>
           <p style="color: red">* required fields</p>
@@ -85,57 +120,13 @@
           <input type="text" name="aadhaar_number" id="aadhaar_number" placeholder="Enter Aadhaar Number" class="form-control" required><br>  
           <label>Enter the number registred with your aadhaar: <span style="color: red">*</span></label>
           <input type="text" name="phone_number" class="form-control" id="phone_number" required></br>
+          <button class="btn btn-primary btn-md" style="position:relative;left:25%" id="send_otp" onclick="">Send OTP</button>
           <label>Enter the OTP sent to your registered mobile number: <span style="color: red">*</span></label>
           <input type="text" name="OTP" class="form-control" id="OTP" required></br>
-          <button class="btn btn-primary btn-md" style="position:relative;left:35%">Login</button>
+          <button class="btn btn-primary btn-md" style="position:relative;left:30%">Login</button>
         </form>
-      </div>
+      </div> -->
 
-      <script data-rv-view="38">
-        document.addEventListener("DOMContentLoaded", function() {
-          var recentPostsRef = firebase.database().ref('posts').orderByChild("order").limitToFirst(100);
-          fetchAdminPosts(recentPostsRef);
-      
-          firebase.auth().onAuthStateChanged(onAuthStateChanged);
-      
-          function onAuthStateChanged(user) {
-      
-            if (user) {
-              writeUserData(user.uid, user.displayName, user.email, user.photoURL);
-              document.getElementById('login-form').style.display = 'none';
-              document.getElementById('login-panel').style.display = 'block';
-              cancel();
-            } else {
-              document.getElementById('login-form').style.display = 'block';
-              document.getElementById('login-panel').style.display = 'none';
-      
-            }
-          }
-      
-          CKEDITOR.inline( 'body',{
-              toolbar: [
-                      { name: 'document', items: [ 'Source' ] },
-                      { name: 'basicstyles', items: [ 'Bold', 'Italic' ] },
-                      { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
-                      { name: 'links', items: [ 'Link', 'Unlink' ] },
-                      { name: 'insert', items: [ 'Image' ] },
-                      { name: 'styles', items: [ 'Format', 'Styles' ] }
-                  ]
-          } );
-      
-          CKEDITOR.inline( 'intro',{
-              toolbar: [
-                      { name: 'document', items: [ 'Source' ] },
-                      { name: 'basicstyles', items: [ 'Bold', 'Italic' ] },
-                      { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
-                      { name: 'links', items: [ 'Link', 'Unlink' ] },
-                      { name: 'insert', items: [ 'Image' ] },
-                      { name: 'styles', items: [ 'Format', 'Styles' ] }
-                  ]
-          } );
-      
-        });
-      </script>
       
       <section once="footers" class="cid-ro0quFkqGn" id="footer6-4">
 
